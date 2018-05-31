@@ -11,28 +11,28 @@ export default [
     }
   },
   {
-    path: '/news',
-    redirect: '/news/user'
+    path: '/work',
+    redirect: '/work/work'
   },
   {
-    // 新闻模块
-    path: '/news',
+    // 工单系统
+    path: '/work',
     component: function (resolve) {
-      require(['./components/news/news.vue'], resolve)
+      require(['./components/work.vue'], resolve)
     },
     children: [
       {
-        // 用户管理-列表
-        path: 'user',
+        // 工单系统-管理中心
+        path: 'manage',
         component: function (resolve) {
-          require(['./components/news/manage-user/user.vue'], resolve)
+          require(['./components/manage-manage/manage.vue'], resolve)
         }
       },
       {
-        // 新闻管理-列表
-        path: 'administrivia',
+        // 新闻管理-工单管理
+        path: 'work',
         component: function (resolve) {
-          require(['./components/news/manage-news/newsistrivia.vue'], resolve)
+          require(['./components/manage-work/work.vue'], resolve)
         }
       },
     ]

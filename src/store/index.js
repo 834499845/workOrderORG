@@ -1,7 +1,3 @@
-/**
- * Created by LangK on 2016/12/20.
- */
-
 import Vue from 'vue'
 import Vuex from 'vuex'
 import state from './state'
