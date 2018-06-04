@@ -15,6 +15,10 @@ export default [
     redirect: '/work/work'
   },
   {
+    path: '/work/manage',
+    redirect: '/work/manage/employee/lists'
+  },
+  {
     // 工单系统
     path: '/work',
     component: function (resolve) {
@@ -26,7 +30,67 @@ export default [
         path: 'manage',
         component: function (resolve) {
           require(['./components/manage-manage/manage.vue'], resolve)
-        }
+        },
+        children: [
+          {
+            // 员工管理-管理中心
+            path: 'employee',
+            component: function (resolve) {
+              require(['./components/manage-manage/employee-manage/employee-manage.vue'], resolve)
+            },
+            children: [
+              {
+                // 员工设置
+                path: 'setting',
+                component: function (resolve) {
+                  require(['./components/manage-manage/employee-manage/employee-manage-setting.vue'], resolve)
+                }
+              },
+              {
+                // 员工列表
+                path: 'lists',
+                component: function (resolve) {
+                  require(['./components/manage-manage/employee-manage/employee-manage-lists.vue'], resolve)
+                }
+              }, {
+                // 员工分组
+                path: 'grouping',
+                component: function (resolve) {
+                  require(['./components/manage-manage/employee-manage/employee-manage-grouping.vue'], resolve)
+                }
+              }
+            ]
+          },
+          {
+            // 操作记录-管理中心
+            path: 'log',
+            component: function (resolve) {
+              require(['./components/manage-manage/log-manage/log-manage.vue'], resolve)
+            }
+          }, {
+            // 系统设置-管理中心
+            path: 'system',
+            component: function (resolve) {
+              require(['./components/manage-manage/system-manage/system-manage.vue'], resolve)
+            },
+            children: [
+              {
+                // 规则设置
+                path: 'rule',
+                component: function (resolve) {
+                  require(['./components/manage-manage/system-manage/system-manage-rule.vue'], resolve)
+                }
+              },
+              {
+                // 应用设置
+                path: 'app',
+                component: function (resolve) {
+                  require(['./components/manage-manage/system-manage/system-manage-app.vue'], resolve)
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         // 新闻管理-工单管理

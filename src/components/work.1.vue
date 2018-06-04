@@ -12,8 +12,8 @@
           <ul>
             <li :class="{'nav-leftnavLi':true,'navSelectleftnavLi':isNavSelectleftnavLi == index}" @click="navListsClick(index)" v-for="(item,index) in navLists" :key="index">
               <div class="nav-leftnavLiImg">
-                <img v-if="isNavSelectleftnavLi != index" :src="item.imgH" alt="">
-                <img v-else :src="item.imgG" alt="">
+                <img v-if="isNavSelectleftnavLi != index" src="/static/img/密码.png" alt="">
+                <img v-else src="/static/img/账号.png" alt="">
               </div>
               <div class="nav-leftnavLiName">
                 {{item.name}}
@@ -22,21 +22,15 @@
           </ul>
         </div>
       </div>
-      <div class="nav-right">
-        <div class="nav-rightImg">
-          <img src="/static/img/logo.png" alt="">
-        </div>
-        <div class="nav-rightName">
-          管理员管
-        </div>
-        <div class="nav-rightOp">
-          <img src="/static/img/下拉.png" alt="">
-        </div>
-      </div>
+      <div class="nav-right"></div>
     </div>
     <!--路由切换-->
     <div class="content">
-      <router-view keep-alive></router-view>
+      <div class="sidebar">
+      </div>
+      <div class="main">
+        <router-view class="view" keep-alive></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -45,20 +39,7 @@ import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
-      navLists: [
-        {
-          name: "工单管理",
-          path: "work",
-          imgH: "static/img/工单管理.png",
-          imgG: "static/img/工单管理选中.png"
-        },
-        {
-          name: "管理中心",
-          path: "manage",
-          imgH: "static/img/管理中心.png",
-          imgG: "static/img/管理中心选中.png"
-        }
-      ], // 头部导航
+      navLists: [{ name: "工单管理" }, { name: "管理中心" }], // 头部导航
       isNavSelectleftnavLi: 1 // 头部选中index
     };
   },
@@ -75,9 +56,6 @@ export default {
     // 头部导航
     navListsClick(index) {
       this.isNavSelectleftnavLi = index;
-      this.$router.push({
-        path: "/work/" + this.navLists[index].path
-      });
     },
     // 退出登录
     exitClick() {
@@ -90,36 +68,6 @@ export default {
 </script>
 <style scoped>
 /*导航部分*/
-.nav-rightImg {
-  width: 32px;
-  height: 32px;
-  margin-right: 12px;
-}
-.nav-rightImg img {
-  width: 100%;
-  height: 100%;
-}
-.nav-rightName {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 1);
-  margin-right: 10px;
-}
-
-.nav-rightOp {
-  width: 13px;
-  margin-right: 37px;
-}
-.nav-rightOp img {
-  width: 100%;
-}
-.nav-right {
-  min-width: 155px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  cursor: pointer;
-}
 .nav-leftnavLiImg {
   width: 100%;
   width: 18px;
@@ -165,7 +113,6 @@ export default {
   z-index: 100000000000000;
   display: flex;
   justify-content: space-between;
-  overflow: hidden;
 }
 .nav-left {
   display: flex;
@@ -187,12 +134,12 @@ export default {
   color: rgba(210, 229, 255, 1);
   margin-left: 16px;
 }
-
+.nav-right {
+  width: 155px;
+  height: 64px;
+}
 .work {
-  background-color: #000;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  background-color: #fff;
 }
 
 /*主体部分*/
@@ -200,6 +147,7 @@ export default {
 .content {
   width: 100%;
   min-height: calc(100vh - 64px);
+  display: flex;
   overflow: hidden;
   background-color: #fff;
 }
