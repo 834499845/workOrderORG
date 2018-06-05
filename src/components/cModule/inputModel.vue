@@ -20,79 +20,77 @@
   </div>
 </template>
 <script>
-  export default {
-    props: {
-      placeholder: {
-        type: String,
-        default: "请输入"
-      },
-      label: {
-        type: String,
-        default: "XXX"
-      }
+export default {
+  props: {
+    placeholder: {
+      type: String,
+      default: "请输入"
     },
-    data() {
-      return {
-        inputVal: "",
-        isErrorFalseShow: false,
-        isErrorShow: false,
-      };
-    },
-    created: function () { },
-    mounted: function () {
-      var self = this;
-    },
-    watch: {
-      inputVal(val) {
-        console.log(val)
-      }
-    },
-    methods: {
+    label: {
+      type: String,
+      default: "XXX"
     }
-  };
+  },
+  data() {
+    return {
+      inputVal: "",
+      isErrorFalseShow: false,
+      isErrorShow: false
+    };
+  },
+  created: function() {},
+  mounted: function() {
+    var self = this;
+  },
+  watch: {
+    inputVal(val) {
+      console.log(val);
+    }
+  },
+  methods: {}
+};
 </script>
 <style scoped>
-  input::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 1);
-  }
+input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 1);
+}
 
-  .forgetBox-listRightError span {
-    font-size: 12px;
-    color: rgba(255, 112, 112, 1);
-    margin-left: 4px;
-  }
+.forgetBox-listRightError span {
+  font-size: 12px;
+  color: rgba(255, 112, 112, 1);
+  margin-left: 4px;
+}
 
-  .forgetBox-listRightError {
-    display: flex;
-    align-items: center;
-  }
+.forgetBox-listRightError {
+  display: flex;
+  align-items: center;
+}
 
-  .forgetBox-listRight {
-    margin-left: 22px;
-  }
+.forgetBox-listRight {
+  margin-left: 22px;
+}
 
-  .forgetBox-listLeft {
-    width: 130px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 1);
-    text-align: right;
-  }
+.forgetBox-listLeft {
+  width: 130px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 1);
+  text-align: right;
+}
 
-  .forgetBox-listcenter input {
-    width: 272px;
-    margin-left: 16px;
-    padding-left: 16px;
-    height: 40px;
-    background: rgba(93, 110, 166, 0.5);
-    border-radius: 2px;
-    color: rgba(255, 255, 255, 1);
-  }
+.forgetBox-listcenter input {
+  width: 272px;
+  margin-left: 16px;
+  padding-left: 16px;
+  height: 40px;
+  background: rgba(93, 110, 166, 0.5);
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 1);
+}
 
-
-  .forgetBox-list {
-    height: 40px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
+.forgetBox-list {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 </style>

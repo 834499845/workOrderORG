@@ -33,7 +33,7 @@
       </ul>
     </div>
     <div class="main">
-      <router-view class="view" keep-alive></router-view>
+      <router-view keep-alive></router-view>
     </div>
   </div>
 </template>
@@ -75,11 +75,11 @@ export default {
             {
               name: "应用设置",
               path: "app"
-            },
-            {
-              name: "规则设置",
-              path: "rule"
             }
+            // {
+            //   name: "规则设置",
+            //   path: "rule"
+            // }
           ],
           path: "system",
           imgh: "static/img/系统设置.png"
@@ -144,7 +144,7 @@ export default {
 .manageBox {
   width: 100%;
   min-height: calc(100vh - 64px);
-  background-color: #fff;
+  background-color: rgb(38, 40, 63);
   display: flex;
   overflow: hidden;
 }

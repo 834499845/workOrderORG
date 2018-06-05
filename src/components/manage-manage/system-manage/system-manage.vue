@@ -1,7 +1,9 @@
 <!--管理中心-系统设置-->
 <template>
   <div class="manageBox">
-    <router-view keep-alive></router-view>
+    <div class="manageBoxView">
+      <router-view keep-alive></router-view>
+    </div>
   </div>
 </template>
 <script>
@@ -24,6 +26,17 @@ export default {
 };
 </script>
 <style scoped>
+.manageBoxView {
+  width: calc(100% - 48px - 40px);
+  height: 100%;
+  margin-left: 48px;
+  overflow: hidden;
+  background-color: rgb(38, 40, 63);
+}
+
 .manageBox {
+  width: 100%;
+  background-color: rgb(38, 40, 63);
+  overflow: hidden;
 }
 </style>

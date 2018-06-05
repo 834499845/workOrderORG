@@ -32,14 +32,13 @@
       </div>
     </div>
     <div class="main">
-      <router-view class="view" keep-alive></router-view>
+      <router-view keep-alive></router-view>
     </div>
   </div>
 </template>
 <script>
 import { mapActions, mapState } from "vuex";
 export default {
-  components: {},
   data() {
     return {
       isSidebarTopBox: false, // 选择应用弹框
@@ -188,7 +187,12 @@ export default {
 }
 
 /*子页面*/
-
+.mainVierw {
+  width: calc(100% - 48px - 40px);
+  height: 100%;
+  margin-left: 48px;
+  overflow: hidden;
+}
 .main {
   width: calc(100% - 216px);
   overflow: hidden;

@@ -12,7 +12,11 @@ export default [
   },
   {
     path: '/work',
-    redirect: '/work/work'
+    redirect: '/work/work/workList'
+  },
+  {
+    path: '/work/work',
+    redirect: '/work/work/workList'
   },
   {
     path: '/work/manage',
@@ -93,12 +97,36 @@ export default [
         ]
       },
       {
-        // 新闻管理-工单管理
+        // 工单管理
         path: 'work',
         component: function (resolve) {
           require(['./components/manage-work/work.vue'], resolve)
-        }
+        },
+        children: [
+          {
+            // 工单管理-列表
+            path: 'workList',
+            component: function (resolve) {
+              require(['./components/manage-work/workList.vue'], resolve)
+            }
+          },
+          {
+            // 工单管理-已处理详情
+            path: 'processedWorkDetails',
+            component: function (resolve) {
+              require(['./components/manage-work/processedWorkDetails.vue'], resolve)
+            }
+          },
+          {
+            // 工单管理-待处理详情
+            path: 'pendingWorkDetails',
+            component: function (resolve) {
+              require(['./components/manage-work/pendingWorkDetails.vue'], resolve)
+            }
+          },
+        ]
       },
+
     ]
   }
 ]

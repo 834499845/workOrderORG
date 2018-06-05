@@ -8,7 +8,7 @@ import routerMap from './router'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import ElementUI from 'element-ui'
-
+import 'element-ui/lib/theme-chalk/index.css'
 //开启debug模式
 Vue.config.debug = true
 Vue.use(VueRouter)
